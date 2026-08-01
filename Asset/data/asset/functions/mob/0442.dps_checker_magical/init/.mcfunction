@@ -9,7 +9,7 @@
     #declare tag Init
 
 # テキストを召喚、自分の上に乗せる
-    summon text_display ~ ~ ~ {Tags:["Init","ProcessCommonTag","AutoKillWhenDieVehicle"],billboard:"center",shadow:1b,brightness:{sky:15,block:15},text:'[{"text":"DPS: "},{"text":"Waiting...","underlined":true}]',background:16711680}
+    summon text_display ~ ~ ~ {alignment:"center",Tags:["Init","ProcessCommonTag","AutoKillWhenDieVehicle"],billboard:"center",shadow:1b,brightness:{sky:15,block:15},text:'[{"text":"DPS: "},{"text":"Waiting...","underlined":true}]',background:16711680}
     ride @e[type=text_display,tag=Init,limit=1] mount @s
     tag @e[type=text_display,tag=Init,limit=1] remove Init
 

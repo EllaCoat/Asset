@@ -1,0 +1,179 @@
+{
+	"env": {
+		"gameVersion": "1.20.4",
+		"permissionLevel": 2,
+		"feature": {
+			"semanticColoring": false
+		}
+	},
+	"lint": {
+		"impDocPrivate": [
+			"error",
+			{
+				"severityByCategory": {
+					"enchantment": "information",
+					"score_holder": "information"
+				}
+			}
+		],
+		"impDocPrivateBestEffort": "warning",
+		"impDocVisibilityConflict": "warning",
+		"impDocContractCheck": "off",
+		"impDocBareDeclaration": "warning",
+		"commandStringQuote": [
+			"warning",
+			{
+				"always": true,
+				"type": "double",
+				"avoidEscape": true
+			}
+		],
+		"nbtKeyQuote": [
+			"warning",
+			{
+				"always": false,
+				"type": "double",
+				"avoidEscape": false
+			}
+		],
+		"nbtPathQuote": [
+			"warning",
+			{
+				"always": false,
+				"type": "double",
+				"avoidEscape": false
+			}
+		],
+		"nbtStringQuote": [
+			"warning",
+			{
+				"always": true,
+				"type": "double",
+				"avoidEscape": true
+			}
+		],
+		"selectorKeyQuote": [
+			"warning",
+			{
+				"always": false
+			}
+		],
+		"nbtBoolean": [
+			"warning",
+			false
+		],
+		"selectorSortKeys": [
+			"warning",
+			[
+				"type",
+				"gamemode",
+				"gamemodeNeg",
+				"team",
+				"teamNeg",
+				"typeNeg",
+				"tag",
+				"tagNeg",
+				"name",
+				"nameNeg",
+				"scores",
+				"advancements",
+				"nbt",
+				"nbtNeg",
+				"predicate",
+				"predicateNeg",
+				"level",
+				"x_rotation",
+				"y_rotation",
+				"distance",
+				"x",
+				"y",
+				"z",
+				"dx",
+				"dy",
+				"dz",
+				"sort",
+				"limit"
+			]
+		],
+		"nameOfScoreHolder": [
+			"error",
+			"^\\$"
+		],
+		"nameOfTeam": [
+			"error",
+			"^([A-Z\\d]+[a-z\\d]*(-[a-z\\d]+)*)+(\\.([A-Z\\d]+[a-z\\d]*(-[a-z\\d]+)*)+)*$"
+		],
+		"nameOfNbtKey": [
+			"information",
+			"^(([A-Z\\d]+[a-z\\d]*)+|id|uuid|_)$"
+		],
+		"nameOfObjective": [
+			"information",
+			"^([A-Z\\d]+[a-z\\d]*(-[a-z\\d]+)*)+(\\.([A-Z\\d]+[a-z\\d]*(-[a-z\\d]+)*)+)*$"
+		],
+		"nameOfTag": [
+			"information",
+			"^(([A-Z\\d]+[a-z\\d]*(-[a-z\\d]+)*)+(\\.([A-Z\\d]+[a-z\\d]*(-[a-z\\d]+)*)+)*|.*this.*)$"
+		],
+		"undeclaredSymbol": [
+			{
+				"if": [
+					{
+						"category": [
+							"attribute",
+							"block",
+							"entity_type",
+							"fluid",
+							"item",
+							"mob_effect",
+							"particle_type",
+							"potion",
+							"sound_event"
+						],
+						"namespace": "minecraft"
+					},
+					{
+						"category": [
+							"advancement",
+							"bossbar",
+							"dimension_type",
+							"function",
+							"loot_table",
+							"objective",
+							"painting_variant",
+							"predicate",
+							"recipe",
+							"storage",
+							"tag",
+							"tag/block",
+							"tag/entity_type",
+							"tag/fluid",
+							"tag/function",
+							"tag/item",
+							"team"
+						]
+					}
+				],
+				"then": {
+					"report": "error"
+				}
+			},
+			{
+				"if": {
+					"category": [
+						"enchantment",
+						"score_holder"
+					]
+				},
+				"then": {
+					"report": "information"
+				}
+			},
+			{
+				"then": {
+					"declare": "block"
+				}
+			}
+		]
+	}
+}
