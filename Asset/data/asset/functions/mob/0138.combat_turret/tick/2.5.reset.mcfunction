@@ -8,4 +8,4 @@
     execute store result score @s 3U.Time run random value 0..30
 
 # リセット処理
-    data modify entity @s NoAI set value 0
+    data modify entity @s NoAI set value 0b
