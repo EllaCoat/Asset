@@ -1,0 +1,26 @@
+# Spyglass v4 エンジンによる静的解析。既存の lint-datapack (DHP v3) と並走させ、
+# 置き換えの可否を見るために導入する。
+#
+# baseline (.github/tsb-spyglass-baseline.json) はまだ置いていないため、check mode は
+# 「baseline が無い」ことを結果を信用できない理由として扱い、この workflow は失敗する。
+# corpus の error を 0 にしたうえで baseline を生成し、それを commit した時点で緑になる。
+name: spyglass-lint
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}-${{ github.event_name }}
+  cancel-in-progress: true
+jobs:
+  lint:
+    name: lint (spyglass v4)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Lint
+        uses: EllaCoat/tsb-spyglass-linter@main
+        with:
+          mode: check
